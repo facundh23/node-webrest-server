@@ -23,15 +23,15 @@ export class Server {
     }
 
      async start(){
-     this.app.use(cors())
+     // Public Folders
+      this.app.use(express.static(this.public_path));
+    //  this.app.use(cors())
 
     //  Middlewares
     // Cualquier peticion que haga va a pasar por este middleware y si viene el body lo va a serializar como un json (RAW)
     this.app.use(express.json());
     // Leer peticiones  con formato x-www-form-url 
     this.app.use(express.urlencoded({extended:true}));
-    // Public Folders
-    this.app.use(express.static(this.public_path));
 
     // Routes
     
@@ -41,6 +41,7 @@ export class Server {
     // Cualquier otra peticion get que no este dentro de la carpeta publica
     // Aca podemos interceptar todas la request y las reponses 
     this.app.get('*', (req, res) => {
+        console.log(req.url)
         // Asi aseguro que al recargar mi pagina no se me va a romper la aplicacion
         const indexPath = path.join(__dirname + `../../../${this.public_path}/index.html`);
         res.sendFile(indexPath);
