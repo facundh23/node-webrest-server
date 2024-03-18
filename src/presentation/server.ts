@@ -39,7 +39,6 @@ export class Server {
     // Cualquier otra peticion get que no este dentro de la carpeta publica
     // Aca podemos interceptar todas la request y las reponses 
     this.app.get('*', (req, res) => {
-        console.log(req.url)
         // Asi aseguro que al recargar mi pagina no se me va a romper la aplicacion
         const indexPath = path.join(__dirname + `../../../${this.public_path}/index.html`);
         res.sendFile(indexPath);
