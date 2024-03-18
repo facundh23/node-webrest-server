@@ -34,8 +34,6 @@ export class Server {
     this.app.use(express.urlencoded({extended:true}));
 
     // Routes
-    
-    
     this.app.use(this.routes)
 
     // Cualquier otra peticion get que no este dentro de la carpeta publica
