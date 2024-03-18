@@ -6,8 +6,8 @@
         "destination": "/"
       },
       {
-        "source": "/(.*)",
-        "destination": "/todos/*"
+        "source": "/api/todos(.*)",
+        "destination": "https://node-webrest-server-plum.vercel.app/api/todos"
       }
     ]
   }
