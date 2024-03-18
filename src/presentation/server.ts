@@ -31,11 +31,12 @@ export class Server {
     // Leer peticiones  con formato x-www-form-url 
     this.app.use(express.urlencoded({extended:true}));
     // Public Folders
+    this.app.use(express.static(this.public_path));
 
     // Routes
+    
+    
     this.app.use(this.routes)
-
-    this.app.use(express.static(this.public_path));
 
     // Cualquier otra peticion get que no este dentro de la carpeta publica
     // Aca podemos interceptar todas la request y las reponses 
