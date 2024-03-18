@@ -18,9 +18,7 @@ export class TodoRoutes {
         router.put('/:id', todoController.updateTodo)
         router.delete('/:id', todoController.deleteTodo)
 
-        router.get('/redirect', (req:Request, res:Response) => {
-            res.redirect('api/todos');
-        })
+    
 
         return router;
     }
