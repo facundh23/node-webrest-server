@@ -1,12 +1,9 @@
 {
     "rewrites": [
-      {
-        "source": "/api/todos",
-        "destination": "/todos"
-      },
+   
       {
         "source": "/(.*)",
-        "destination": "/*"
+        "destination": "/"
       }
     ]
   }
