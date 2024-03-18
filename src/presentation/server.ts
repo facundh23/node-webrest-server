@@ -24,7 +24,7 @@ export class Server {
 
      async start(){
          //  this.app.use(cors())
-         console.log(this.routes)
+        
          
          //  Middlewares
          // Cualquier peticion que haga va a pasar por este middleware y si viene el body lo va a serializar como un json (RAW)
@@ -32,8 +32,9 @@ export class Server {
          // Leer peticiones  con formato x-www-form-url 
          this.app.use(express.urlencoded({extended:true}));
          
-        // Public Folders
+        // Public Folders: si no se reconocen ninguna de nuestra rutas establecidas en nuestro public routes 
         this.app.use(express.static(this.publicPath));
+        console.log(this.publicPath)
         // Routes
         this.app.use(this.routes)
 
