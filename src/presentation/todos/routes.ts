@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
 import { TodosController } from "./controllers";
 
 
@@ -17,6 +17,10 @@ export class TodoRoutes {
         router.post('/', todoController.createTodo)
         router.put('/:id', todoController.updateTodo)
         router.delete('/:id', todoController.deleteTodo)
+
+        router.get('/redirect', (req:Request, res:Response) => {
+            res.redirect('api/todos');
+        })
 
         return router;
     }

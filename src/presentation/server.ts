@@ -24,7 +24,7 @@ export class Server {
 
      async start(){
      // Public Folders
-      this.app.use(express.static(this.public_path));
+    this.app.use(express.static(this.public_path));
     //  this.app.use(cors())
 
     //  Middlewares
