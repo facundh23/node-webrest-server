@@ -1,4 +1,5 @@
 import express, { Router } from 'express';
+import cors from 'cors';
 import path from 'path';
 
 interface Options {
@@ -22,13 +23,13 @@ export class Server {
     }
 
      async start(){
+     this.app.use(cors())
 
     //  Middlewares
     // Cualquier peticion que haga va a pasar por este middleware y si viene el body lo va a serializar como un json (RAW)
     this.app.use(express.json());
     // Leer peticiones  con formato x-www-form-url 
     this.app.use(express.urlencoded({extended:true}));
-
     // Public Folders
 
     // Routes
@@ -50,3 +51,4 @@ export class Server {
         })
      }
 }
+
